@@ -6,16 +6,18 @@ public class Libro {
     private int idLibro;
     private int anioPublicacion;
     private int cantidadCopias;
+    private int copiasDisponibles;
     private int copiasPrestadas;
     private Reserva[] reservas;
     private static int contador = 0;
 
-    public Libro(String titulo, String autor, int anioPublicacion, int cantidadCopias){
+    public Libro(String titulo, String autor, int anioPublicacion, int cantidadCopias) {
         this.titulo = titulo;
         this.autor = autor;
         this.idLibro = contador++;
         this.anioPublicacion = anioPublicacion;
         this.cantidadCopias = cantidadCopias;
+        this.copiasdisponibles = cantidadCopias;
         this.copiasPrestadas = 0;
         this.reservas = new Reserva[10];
     }
@@ -58,12 +60,12 @@ public class Libro {
 		System.out.println("El listado de libros de la biblioteca es: ");
         	for (Libro libro : libros)
         	{
-            		if(libro != null)
+            		if(libro != null && libro.cantidadCopias > libro.copiasPrestadas)
             		{
             			System.out.println("- " + libro.titulo); 
             		}
         	}
-    	}
+     	}
 
 	public void aniadirReserva(Reserva reserva) 
 	{
@@ -93,4 +95,9 @@ public class Libro {
 		System.out.println("Error al eliminar la reserva. Puede que la reserva a la que hace referencia no exista.");
 		
 	}
+	public int getCopiasDisponibles()
+	{
+		return cantidadCopias - copiasPrestadas;
+	}		
+		
 }

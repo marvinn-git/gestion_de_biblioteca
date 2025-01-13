@@ -17,13 +17,12 @@ public class Libro {
 		this.anioPublicacion = anioPublicacion;
 		this.cantidadCopias = cantidadCopias;
 		contador++;
-		
-		
 	}
 	
 	public Libro registrarLibro(String titulo, String autor, int anioPublicacion ,int cantidadCopias)
 	{
-		
+		Libro libro = new Libro(titulo, autor, IDLibro, anioPublicacion, cantidadCopias);
+		return libro;
 	}
 	
 	public void consultarLibro(String nombre)
@@ -51,8 +50,4 @@ public class Libro {
 	{
 		
 	}
-	
-	
-	
-
 }

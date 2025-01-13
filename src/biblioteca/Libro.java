@@ -10,7 +10,7 @@ public class Libro {
     private Reserva[] reservas;
     private static int contador = 0;
 
-    public Libro(String titulo, String autor, int anioPublicacion, int cantidadCopias) {
+    public Libro(String titulo, String autor, int anioPublicacion, int cantidadCopias){
         this.titulo = titulo;
         this.autor = autor;
         this.idLibro = contador++;
@@ -32,16 +32,8 @@ public class Libro {
 		{
 			if(libros[i] != null && libros[i].titulo.equalsIgnoreCase(nombre))
 			{
-				if(copiasDisponibles > 0)
-				{
-					System.out.println("El libro " + nombre + " esta disponible y hay " + copiasDisponibles);
-					return;
-				}
-				else
-				{
-					System.out.println("El libro " + nombre + " no tiene copias disponibles. Pruebe a reservarlo.");
-					return;
-				}
+				System.out.println("Id Libro: " + libro.idLibro + ", Titulo: " + libro.titulo + " , Autor:  " + libro.autor + " , Año Publicación: " + libro.anioPublicacion + " ,Copias totales: " + libro.cantidadCopias);
+				return;
 			}
 	     }
 		else
@@ -55,16 +47,8 @@ public class Libro {
 		{
 			if(libros[i] != null && libros[i].IdLibro == id)
 			{
-				if(copiasDisponibles > 0)
-				{
-					System.out.println("El libro " + nombre + " esta disponible y hay " + copiasDisponibles);
-					return;
-				}
-				else
-				{
-					System.out.println("El libro " + nombre + " no tiene copias disponibles. Pruebe a reservarlo.");
-					return;
-				}
+				System.out.println("Id Libro: " + libro.idLibro + ", Titulo: " + libro.titulo + " , Autor:  " + libro.autor + " , Año Publicación: " + libro.anioPublicacion + " ,Copias totales: " + libro.cantidadCopias);
+				return;
 			}
 	     }
 		else
@@ -76,8 +60,16 @@ public class Libro {
 	
 	public void listarLibros(Libro[] libros)
 	{
+		System.out.println("El listado de libros de la biblioteca es: ");
+        	for (Libro libro : libros)
+        	{
+            		if(libro != null)
+            		{
+            			System.out.println("- " + libro.titulo); 
+            		}
+        	}
+   	}
 
-	}
 
 	public aniadirReserva() 
 	{

@@ -7,9 +7,9 @@ public class Usuarios {
 	    private String rol;
 	    private String librosPrestados;
 
-	    public void Usuario(String nombre, String id_unico, String rol) {
+	    public void Usuario(String nombre, String id_unico, String rol, String librosPrestados) {
 	        this.nombre = nombre;
-	        this.id = id_unico;
+	        this.id_unico = id_unico;
 	        this.rol = rol;
 	        this.librosPrestados = librosPrestados;
 	    }
@@ -19,7 +19,7 @@ public class Usuarios {
 	    }
 
 	    public String getId() {
-	        return id;
+	        return id_unico;
 	    }
 
 	    public String getRol() {
@@ -28,5 +28,5 @@ public class Usuarios {
 
 	    public String getLibrosPrestados() {
 	        return librosPrestados;
-      }
-}
+	    }
+	}

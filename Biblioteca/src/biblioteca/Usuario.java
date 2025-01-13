@@ -7,7 +7,6 @@ public class Usuarios {
 	    private String rol;
 	    private String librosPrestados;
 
-	    // Constructor
 	    public void Usuario(String nombre, String id_unico, String rol) {
 	        this.nombre = nombre;
 	        this.id = id_unico;
@@ -15,7 +14,6 @@ public class Usuarios {
 	        this.librosPrestados = librosPrestados;
 	    }
 
-	    // Métodos getters
 	    public String getNombre() {
 	        return nombre;
 	    }

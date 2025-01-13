@@ -36,9 +36,7 @@ public class Libro {
 				return;
 			}
 	     }
-		else
-		{
-			System.out.println("El libro que buscas no esta en nuestra biblioteca");
+		System.out.println("El libro que buscas no esta en nuestra biblioteca");
 		}
 	}
 
@@ -51,28 +49,34 @@ public class Libro {
 				return;
 			}
 	     }
-		else
-		{
-			System.out.println("El libro que buscas no esta en nuestra biblioteca");
-		}
+		System.out.println("El libro que buscas no esta en nuestra biblioteca");
 	}
 
 	
 	public void listarLibros(Libro[] libros)
 	{
 		System.out.println("El listado de libros de la biblioteca es: ");
-        	for (Libro libro : libros)
-        	{
-            		if(libro != null)
-            		{
-            			System.out.println("- " + libro.titulo); 
-            		}
-        	}
-   	}
+        for (Libro libro : libros)
+        {
+            if(libro != null)
+            {
+            	System.out.println("- " + libro.titulo); 
+            }
+        }
+    }
 
-
-	public aniadirReserva() 
+	public void aniadirReserva(Reserva reserva) 
 	{
+		for (int i = 0; i < reservas.length; i++)
+		{
+			if(reservas[i] == null)
+			{
+				reserva[i] = reserva;
+				System.out.println("La reserva se ha realizado con éxito");
+				return;	
+			}	
+		}
+		System.out.println("Listado de reserva lleno. No se ha realizado la reserva");
 		
 	}
 

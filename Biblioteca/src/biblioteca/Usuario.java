@@ -1,14 +1,10 @@
 package biblioteca;
 
-public class Usuario {
-
-  package biblioteca;
-
 public class Usuarios {
 	
 	    private String nombre;
-	    private String id;
-	    private String rol; // Puede ser "admin", "usuario", etc.
+	    private String id_unico;
+	    private String rol;
 	    private String librosPrestados;
 
 	    // Constructor

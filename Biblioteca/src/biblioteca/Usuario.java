@@ -14,19 +14,19 @@ public class Usuarios {
 	        this.librosPrestados = librosPrestados;
 	    }
 
-	    public String getNombre() {
+	    public String getnombre() {
 	        return nombre;
 	    }
 
-	    public String getId() {
+	    public String getid_unico() {
 	        return id_unico;
 	    }
 
-	    public String getRol() {
+	    public String getrol() {
 	        return rol;
 	    }
 
-	    public String getLibrosPrestados() {
+	    public String getlibrosPrestados() {
 	        return librosPrestados;
 	    }
 	}

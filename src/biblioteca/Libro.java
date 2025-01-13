@@ -6,7 +6,7 @@ public class Libro {
     private int idLibro;
     private int anioPublicacion;
     private int cantidadCopias;
-    private int copiasDisponibles;
+    private int copiasdisponibles;
     private int copiasPrestadas;
     private Reserva[] reservas;
     private static int contador = 0;
@@ -34,20 +34,20 @@ public class Libro {
 		{
 			if(libros[i] != null && libros[i].titulo.equalsIgnoreCase(nombre))
 			{
-				System.out.println("Id Libro: " + libro.idLibro + ", Titulo: " + libro.titulo + " , Autor:  " + libro.autor + " , Año Publicación: " + libro.anioPublicacion + " ,Copias totales: " + libro.cantidadCopias);
+				System.out.println("Id Libro: " + libros[i].idLibro + ", Titulo: " + libros[i].titulo + " , Autor:  " + libros[i].autor + " , Año Publicación: " + libros[i].anioPublicacion + " ,Copias totales: " + libros[i].cantidadCopias);
 				return;
 			}
 	     }
 		System.out.println("El libro que buscas no esta en nuestra biblioteca");
 		}
-	}
+	
 
 	public void consultarLibro(int id, Libro[] libros) {
 		for (int i = 0; i < libros.length; i++)
 		{
-			if(libros[i] != null && libros[i].IdLibro == id)
+			if(libros[i] != null && libros[i].idLibro == id)
 			{
-				System.out.println("Id Libro: " + libro.idLibro + ", Titulo: " + libro.titulo + " , Autor:  " + libro.autor + " , Año Publicación: " + libro.anioPublicacion + " ,Copias totales: " + libro.cantidadCopias);
+				System.out.println("Id Libro: " + libros[i].idLibro + ", Titulo: " + libros[i].titulo + " , Autor:  " + libros[i].autor + " , Año Publicación: " + libros[i].anioPublicacion + " ,Copias totales: " + libros[i].cantidadCopias);
 				return;
 			}
 	     }
@@ -58,14 +58,14 @@ public class Libro {
 	public void listarLibros(Libro[] libros)
 	{
 		System.out.println("El listado de libros de la biblioteca es: ");
-        	for (Libro libro : libros)
-        	{
-            		if(libro != null && libro.cantidadCopias > libro.copiasPrestadas)
-            		{
-            			System.out.println("- " + libro.titulo); 
-            		}
-        	}
-     	}
+        for (Libro libro : libros)
+        {
+            if(libro != null && libro.cantidadCopias > libro.copiasPrestadas)
+            {
+            	System.out.println("- " + libro.titulo); 
+            }
+        }
+    }
 
 	public void aniadirReserva(Reserva reserva) 
 	{
@@ -73,7 +73,7 @@ public class Libro {
 		{
 			if(reservas[i] == null)
 			{
-				reserva[i] = reserva;
+				reservas[i] = reserva;
 				System.out.println("La reserva se ha realizado con éxito");
 				return;	
 			}	
@@ -90,14 +90,12 @@ public class Libro {
 			{
 				reservas[i] = null;
 				System.out.println("La reserva se ha eliminado con éxito");
-			{	
+			}
 		}
-		System.out.println("Error al eliminar la reserva. Puede que la reserva a la que hace referencia no exista.");
-		
+		System.out.println("Error al eliminar la reserva. Puede que la reserva a la que hace referencia no exista.");			
 	}
-	public int getCopiasDisponibles()
-	{
+
+	public int getCopiasDisponibles() {
 		return cantidadCopias - copiasPrestadas;
-	}		
-		
+	}
 }

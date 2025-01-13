@@ -56,14 +56,14 @@ public class Libro {
 	public void listarLibros(Libro[] libros)
 	{
 		System.out.println("El listado de libros de la biblioteca es: ");
-        for (Libro libro : libros)
-        {
-            if(libro != null)
-            {
-            	System.out.println("- " + libro.titulo); 
-            }
-        }
-    }
+        	for (Libro libro : libros)
+        	{
+            		if(libro != null)
+            		{
+            			System.out.println("- " + libro.titulo); 
+            		}
+        	}
+    	}
 
 	public void aniadirReserva(Reserva reserva) 
 	{
@@ -80,8 +80,17 @@ public class Libro {
 		
 	}
 
-	public eliminarReserva()
+	public void eliminarReserva(Reserva reserva)
 	{
+		for (int i = 0; i < reservas.length; i++)
+		{
+			if(reservas[i].equals(reserva))
+			{
+				reservas[i] = null;
+				System.out.println("La reserva se ha eliminado con éxito");
+			{	
+		}
+		System.out.println("Error al eliminar la reserva. Puede que la reserva a la que hace referencia no exista.");
 		
 	}
 }

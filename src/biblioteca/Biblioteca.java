@@ -35,6 +35,38 @@ public class Biblioteca {
 					scanner.nextLine();
 				}
 			} while (!valido);
+
+			switch (opcion) {
+			case 1:
+				if (contadorUsuarios < usuarios.length)
+				{
+					System.out.print("Ingrese nombre: ");
+					String nombre = scanner.nextLine();
+					System.out.print("Ingrese ID: ");
+					String id = scanner.nextLine();
+					valido = false;
+					String rol;
+					do 
+					{
+						System.out.print("Ingrese rol: (Profesor, estudiante o invitado)");
+						rol = scanner.next();
+						if(rol.equalsIgnoreCase("Profesor") || rol.equalsIgnoreCase("estudiante") || rol.equalsIgnoreCase("invitado"))
+						{
+							valido = true;
+						}	
+						else
+						{
+							System.out.println("Error: rol incorrecto.");
+						}
+					} while (!valido);
+					usuarios[contadorUsuarios++] = new Usuario(nombre, id, rol);
+					System.out.println("Usuario registrado.");
+				}
+				else
+				{
+					System.out.println("Error: No se puede registrar mas usuarios.");
+				}
+				break;
       
     }
   }

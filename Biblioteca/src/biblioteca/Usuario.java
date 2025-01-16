@@ -33,5 +33,5 @@ public class Usuarios {
   }
   public String getlibrosPrestados() {
 	return librosPrestados;
-     }
   }
+}

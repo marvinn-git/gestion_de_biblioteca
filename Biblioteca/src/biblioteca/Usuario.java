@@ -35,3 +35,8 @@ public class Usuarios {
 	return librosPrestados;
   }
 }
+
+//Metodos
+public static Usuarios registrarUsuarios (String nombre, String id_unico, String rol, String librosPrestados) {
+	    	return new Usuarios ();
+	    }

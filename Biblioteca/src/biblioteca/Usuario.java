@@ -1,7 +1,8 @@
 package biblioteca;
 
 public class Usuarios {
-	
+
+  //Atributos
   private String nombre;
   private String id_unico;
   private String rol;
@@ -36,7 +37,20 @@ public class Usuarios {
   }
 }
 
-//Metodos
-public static Usuarios registrarUsuarios (String nombre, String id_unico, String rol, String librosPrestados) {
-	    	return new Usuarios ();
+  //Metodos
+  public static Usuarios registrarUsuarios (String nombre, String id_unico, String rol, String librosPrestados) {
+	return new Usuarios ();
 	    }
+  public static void listarUsuarios(Usuarios Usuarios) {
+	for (Usuario usuario : usuarios) {
+        System.out.println("Nombre: " + usuario.nombre);
+        System.out.println("ID Único: " + usuario.idUnico);
+        System.out.println("Rol: " + usuario.rol);
+        System.out.println("Libros Prestados: " + usuario.librosPrestados);
+        System.out.println("---------------------------------");
+  }
+}
+  public boolean puedeRealizarPrestamo() {
+	return this.librosPrestados.size() < 5;
+  }
+}

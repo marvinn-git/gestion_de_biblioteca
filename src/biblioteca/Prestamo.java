@@ -20,4 +20,11 @@ public Prestamo(int ID_prestamo, String libro, String usuario, int fecha_prestam
 	    public static Prestamo crearPrestamo(Libro libro, Usuario usuario) {
 	        return new Prestamo(libro, usuario);
 	    }
+	// Marcar la devolución del préstamo
+	    public void marcarDevolucion() {
+	        this.fechaDevolucion = LocalDate.now();
+	        libro.setDisponible(true); // Marca el libro como disponible
+	        usuario.decrementarPrestamosActivos();
+	    }
+	
 }

@@ -26,5 +26,15 @@ public Prestamo(int ID_prestamo, String libro, String usuario, int fecha_prestam
 	        libro.setDisponible(true); // Marca el libro como disponible
 	        usuario.decrementarPrestamosActivos();
 	    }
+	// Validar la disponibilidad del libro y las restricciones del usuario
+	    private static boolean validarDisponibilidad(Libro libro, Usuario usuario) {
+	        if (!libro.isDisponible()) {
+	            return false; // El libro no está disponible
+	        }
+
+	        // Verificar el límite de préstamos según el rol del usuario
+	        int limitePrestamos = usuario.getRol().equals("Estudiante") ? 3 : 5;
+	        return usuario.getPrestamosActivos() < limitePrestamos;
+	    }
 	
 }

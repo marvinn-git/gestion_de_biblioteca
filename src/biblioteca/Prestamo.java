@@ -14,4 +14,10 @@ public Prestamo(int ID_prestamo, String libro, String usuario, int fecha_prestam
 	this.fecha_prestamo = fecha_prestamo;
 	this.fecha_devolucion = fecha_devolucion;	
 	}
+	// Métodos
+
+	    // Crear un nuevo préstamo
+	    public static Prestamo crearPrestamo(Libro libro, Usuario usuario) {
+	        return new Prestamo(libro, usuario);
+	    }
 }

@@ -9,10 +9,8 @@ public class Reserva {
     private Libro libro;
     private String fechaReserva;
 
-    // Lista estática para gestionar reservas
     private static List<Reserva> listaReservas = new ArrayList<>();
 
-    // Constructor
     public Reserva(int idReserva, Usuario usuario, Libro libro, String fechaReserva) {
         this.idReserva = idReserva;
         this.usuario = usuario;
@@ -53,7 +51,6 @@ public class Reserva {
         this.fechaReserva = fechaReserva;
     }
 
-    // Método para crear una reserva
     public static Reserva crearReserva(int idReserva, Usuario usuario, Libro libro, String fechaReserva) {
         Reserva nuevaReserva = new Reserva(idReserva, usuario, libro, fechaReserva);
         listaReservas.add(nuevaReserva);
@@ -62,7 +59,6 @@ public class Reserva {
         return nuevaReserva;
     }
 
-    // Método para listar reservas de un libro
     public static void listarReservasDeUnLibro(Libro libro) {
         System.out.println("Reservas para el libro: " + libro.getTitulo());
         boolean hayReservas = false;
@@ -81,7 +77,6 @@ public class Reserva {
         }
     }
 
-    // Método para liberar una reserva
     public static boolean liberarReserva(int idReserva) {
         for (Reserva reserva : listaReservas) {
             if (reserva.getIdReserva() == idReserva) {

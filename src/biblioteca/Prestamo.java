@@ -1,21 +1,18 @@
 package biblioteca;
 
 public class Prestamo {
-    // Atributos
     private int idPrestamo;
     private Libro libro;
     private Usuario usuario;
     private int fechaPrestamo;
     private int fechaDevolucion;
-    private static int contadorPrestamos = 0;  // Contador estático para generar ID único de préstamo
+    private static int contadorPrestamos = 0; 
 
-    // Constructor
     public Prestamo(Libro libro, Usuario usuario, int fechaPrestamo) {
-        this.idPrestamo = ++contadorPrestamos;  // Generar ID único para el préstamo
+        this.idPrestamo = ++contadorPrestamos; 
         this.libro = libro;
         this.usuario = usuario;
         this.fechaPrestamo = fechaPrestamo;
-        // Establecemos la fecha de devolución por defecto a los 7 días del préstamo
         this.fechaDevolucion = (fechaPrestamo + 7);  // +7 días
     }
 

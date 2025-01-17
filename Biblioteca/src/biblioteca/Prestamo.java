@@ -1,84 +1,72 @@
 package biblioteca;
 
-public class Prestamo {
-// Atributos
-    private String idPrestamo;
-    private Libro libro;
-    private Usuario usuario;
-    private LocalDate fechaPrestamo;
-    private LocalDate fechaDevolucion;
+import java.util.List;
 
-    // Constructor
-    public Prestamo(Libro libro, Usuario usuario) {
-        if (!validarDisponibilidad(libro, usuario)) {
+public class Prestamo {
+
+	private int ID_prestamo = 0;
+	private String libro;
+	private String usuario;
+	private int fecha_prestamo;
+	private int fecha_devolucion;
+	
+	public Prestamo(int ID_prestamo, String libro, String usuario, int fecha_prestamo, int fecha_devolucion) {
+		this.ID_prestamo = ID_prestamo;
+		this.libro = libro;
+		this.usuario = usuario;
+		this.fecha_prestamo = fecha_prestamo;
+		this.fecha_devolucion = fecha_devolucion;
+		
+	}
+	// Métodos
+    public static Prestamo crearPrestamo(int ID_prestamo, String libro, String usuario, int fecha_prestamo, int fecha_devolucion, List<Prestamo> prestamos, usuario usuario, libro libro) {
+        if (!validarDisponibilidad(libro, usuario, prestamos)) {
             throw new IllegalArgumentException("No se puede realizar el préstamo: libro no disponible o límite de préstamos alcanzado.");
         }
 
-        this.idPrestamo = UUID.randomUUID().toString(); // Genera un ID único
-        this.libro = libro;
-        this.usuario = usuario;
-        this.fechaPrestamo = LocalDate.now();
-        this.fechaDevolucion = null; // Se define al marcar devolución
-
-        libro.setDisponible(false); // Marca el libro como prestado
+        libro.setDisponible(false);
         usuario.incrementarPrestamosActivos();
+        return new Prestamo(ID_prestamo, libro, usuario, fecha_prestamo, fecha_devolucion);
     }
-
-    // Métodos
-
-    // Crear un nuevo préstamo
-    public static Prestamo crearPrestamo(Libro libro, Usuario usuario) {
-        return new Prestamo(libro, usuario);
-    }
-
-    // Marcar la devolución del préstamo
-    public void marcarDevolucion() {
-        this.fechaDevolucion = LocalDate.now();
-        libro.setDisponible(true); // Marca el libro como disponible
+    public void marcarDevolucion(libro libro, usuario usuario) {
+        this.fecha_devolucion = (int) (System.currentTimeMillis() / 1000L); // Marca la fecha de devolución actual en segundos
+        libro.setDisponible(true);
         usuario.decrementarPrestamosActivos();
     }
-
-    // Validar la disponibilidad del libro y las restricciones del usuario
-    private static boolean validarDisponibilidad(Libro libro, Usuario usuario) {
+    private static boolean validarDisponibilidad(libro libro, usuario usuario) {
         if (!libro.isDisponible()) {
             return false; // El libro no está disponible
         }
-
-        // Verificar el límite de préstamos según el rol del usuario
-        int limitePrestamos = usuario.getRol().equals("Estudiante") ? 3 : 5;
-        return usuario.getPrestamosActivos() < limitePrestamos;
+    }
+ // Getters y Setters
+    public int getID_prestamo() {
+        return ID_prestamo;
     }
 
-    // Getters y Setters
-    public String getIdPrestamo() {
-        return idPrestamo;
-    }
-
-    public Libro getLibro() {
+    public libro getLibro() {
         return libro;
     }
 
-    public Usuario getUsuario() {
+    public usuario getUsuario() {
         return usuario;
     }
 
-    public LocalDate getFechaPrestamo() {
-        return fechaPrestamo;
+    public int getfecha_prestamo() {
+        return fecha_prestamo;
     }
 
-    public LocalDate getFechaDevolucion() {
-        return fechaDevolucion;
+    public int getfecha_devolucion() {
+        return fecha_devolucion;
     }
 
     @Override
     public String toString() {
         return "Prestamo{" +
-                "idPrestamo='" + idPrestamo + '\'' +
+                "ID_prestamo='" + ID_prestamo + '\'' +
                 ", libro=" + libro +
                 ", usuario=" + usuario +
-                ", fechaPrestamo=" + fechaPrestamo +
-                ", fechaDevolucion=" + (fechaDevolucion != null ? fechaDevolucion : "Pendiente") +
+                ", fecha_prestamo=" + fecha_prestamo +
+                ", fecha_devolucion=" + (fecha_devolucion != null ? fecha_devolucion : "Pendiente") +
                 '}';
     }
-		
-}
+	}
